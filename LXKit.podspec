@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'LUO XIAO ToolBox'
-  s.homepage = 'https://github.com/luoxiao/ToolCar'
+  s.homepage = 'https://github.com/luoxiao/LXKit'
   s.authors = { 'LUO XIAO' => 'luoxiao1115@163.com' }
   s.source = { :git => 'https://github.com/luoxiao/LXKit.git', :tag => s.version }
   s.documentation_url = 'https://github.com/luoxiao/LXKit'
