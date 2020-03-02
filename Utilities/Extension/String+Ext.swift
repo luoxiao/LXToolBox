@@ -8,7 +8,7 @@
 import Foundation
 
 // 随机几位数据
-extension String {
+public extension String {
     static func random(length: Int) -> String {
         var string = ""
         let letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -27,7 +27,7 @@ extension String {
     }
 }
 
-extension String {
+public extension String {
     
     //Base64编码
     func base64Encoding() -> String {
@@ -43,7 +43,7 @@ extension String {
     }
 }
 
-extension String {
+public extension String {
     
     subscript (i: Int) -> String {
         return self[i ..< i + 1]
@@ -74,7 +74,7 @@ extension String {
     
 }
 
-extension String {
+public extension String {
     func ga_widthForComment(fontSize: CGFloat, height: CGFloat = 15) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
@@ -94,7 +94,7 @@ extension String {
     }
 }
 
-extension String {
+public extension String {
     
     func urlEncoded() -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
@@ -109,7 +109,7 @@ extension String {
 
 
 
-extension String {
+public extension String {
     func substring(from: Int?, to: Int?) -> String {
         if let start = from {
             guard start < self.count else {
@@ -186,7 +186,7 @@ extension String {
 }
 
 
-extension String {
+public extension String {
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {

@@ -9,7 +9,7 @@
 import Foundation
 import Kingfisher
 
-extension UIImageView {
+public extension UIImageView {
     
     convenience init(_ imageName:String) {
         self.init()
@@ -26,7 +26,7 @@ extension UIImageView {
     
 }
 
-extension UIImageView {
+public extension UIImageView {
     
     func setImage(_ url:String?) {
         self.contentMode = .scaleAspectFill

@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension UILabel {
+public extension UILabel {
     
     convenience init(_ text:String, _ font:UIFont, _ textColor:UIColor) {
         self.init()

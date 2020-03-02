@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIButton {
+public extension UIButton {
    
     convenience init(_ font:UIFont, _ textColor:UIColor, _ state:UIControl.State) {
         self.init(type: .system)
@@ -49,7 +49,7 @@ extension UIButton {
         
 }
 
-extension UIButton {
+public extension UIButton {
     func c(_ textColor:UIColor, _ font:UIFont, _ state:UIControl.State) {
         setTitleColor(textColor, for: state)
         titleLabel?.font = font
@@ -62,7 +62,7 @@ extension UIButton {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     
     func setImage(_ url:String?) {
         if let u = url, let url = URL(string: u) {

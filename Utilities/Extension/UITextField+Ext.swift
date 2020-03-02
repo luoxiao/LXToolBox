@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension UITextField {
+public extension UITextField {
     
     convenience init(_ text:String, font:UIFont, textColor:UIColor) {
         self.init()

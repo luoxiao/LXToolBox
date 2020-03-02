@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-extension UIView {
+public extension UIView {
     
     
     //添加渐变色

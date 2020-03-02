@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension UIColor {
+public extension UIColor {
 
-    public convenience init(hex hexValue: Int, alpha: CGFloat = 1.0) {
+    convenience init(hex hexValue: Int, alpha: CGFloat = 1.0) {
         let redValue   = CGFloat((hexValue & 0xFF0000) >> 16) / 255.0
         let greenValue = CGFloat((hexValue & 0xFF00) >> 8) / 255.0
         let blueValue  = CGFloat(hexValue & 0xFF) / 255.0

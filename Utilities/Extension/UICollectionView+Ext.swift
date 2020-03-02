@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension UICollectionView {
+public extension UICollectionView {
     
     public func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
         register(cellClass, forCellWithReuseIdentifier: "\(T.self)")

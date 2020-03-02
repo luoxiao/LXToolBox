@@ -12,7 +12,7 @@ import SnapKit
 private let common_line_color  = UIColor.hex("#E8E8E8")
 
 // line
-extension UIView {
+public extension UIView {
     
     @discardableResult
     func addBottomSeparatorLine(_ left:CGFloat? = 0,_ right:CGFloat? = 0, height:CGFloat? = 0.5) -> UIView {

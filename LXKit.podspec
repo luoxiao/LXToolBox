@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'ToolCar'
+  s.name = 'LXKit'
   s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'LUO XIAO ToolBox'
@@ -15,7 +15,12 @@ Pod::Spec.new do |s|
 
   s.swift_versions = ['5.0', '5.1']
 
-  s.source_files = 'Extension/*.swift'
+  #s.source_files = 'Extension/*.swift'
+  s.source_files = 'Utilities/Extension/*.swift'
 
   s.frameworks = 'CFNetwork'
+  
+  s.dependency 'SnapKit'
+  s.dependency 'Kingfisher'
+  
 end

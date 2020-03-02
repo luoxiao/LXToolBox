@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-extension UIImage {
+public extension UIImage {
     
     
     class func createWithColor(_ color:UIColor) -> UIImage {
@@ -119,7 +119,7 @@ extension UIImage {
 }
 
 
-extension UIImage {
+public extension UIImage {
     
     //生成二维码
     class func generateQRCode(_ str: String) -> UIImage? {

@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-extension WKWebView {
+public extension WKWebView {
     private struct key {
         static let scale = unsafeBitCast(Selector("scalesPageToFit"), to: UnsafePointer<Void>.self)
     }
