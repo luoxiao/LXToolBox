@@ -64,38 +64,9 @@ extension UIButton {
 
 extension UIButton {
     
-    func addGradientLayer(width:CGFloat,height:CGFloat) {
-        let glayer = CAGradientLayer()
-        glayer.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        glayer.colors = [UIColor.black.cgColor,UIColor.red.cgColor]
-        glayer.startPoint = CGPoint(x: 0, y: 0)
-        glayer.endPoint = CGPoint(x: 1, y: 0)
-        self.layer.insertSublayer(glayer, at: 0)
-    }
-    
-    //通用完成button样式
-    class func createCommonFinishStyle() -> UIButton {
-        let btn = UIButton()
-        btn.titleLabel?.font = .medium(16)
-        btn.setTitleColor(.white, for: .normal)
-        btn.setTitleColor(UIColor.white.alpha(0.4), for: .highlighted)
-        btn.setTitleColor(.subTitleColor, for: .disabled)
-        btn.setBackgroundImage(UIImage.createWithColor(.hex("#4DB871")), for: .normal)
-        btn.setBackgroundImage(UIImage.createWithColor(.hex("#368952")), for: .highlighted)
-        btn.setBackgroundImage(UIImage.createWithColor(.hex("#C0C4CC")), for: .disabled)
-        btn.clipsToBounds = true
-        return btn
-    }
-    
-}
-
-
-extension UIButton {
-    
     func setImage(_ url:String?) {
         if let u = url, let url = URL(string: u) {
             self.kf.setImage(with: url, for: .normal, placeholder: nil, options: [.transition(.fade(0.3))])
         }
     }
-    
 }

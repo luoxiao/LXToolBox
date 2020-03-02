@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SnapKit
 
 private let common_line_color  = UIColor.hex("#E8E8E8")
 

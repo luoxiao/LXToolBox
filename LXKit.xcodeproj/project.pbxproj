@@ -18,9 +18,14 @@
 		0ABC22DB240CB63A0073FA64 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22D1240CB6390073FA64 /* UIButton+Ext.swift */; };
 		0ABC22DC240CB63A0073FA64 /* WKWebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22D2240CB63A0073FA64 /* WKWebView+Ext.swift */; };
 		0ABC22DD240CB63A0073FA64 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22D3240CB63A0073FA64 /* UIView+Ext.swift */; };
+		0ABC22DF240CD4560073FA64 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22DE240CD4560073FA64 /* UIFont+Ext.swift */; };
+		0ABC22E1240CD5600073FA64 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22E0240CD5600073FA64 /* UIColor+Ext.swift */; };
+		0ABC22E5240CD5E40073FA64 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC22E4240CD5E40073FA64 /* String+Ext.swift */; };
+		E808E65423DF276FD9E27C49 /* Pods_Utilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E493B8BA3F6A4FAEEF8044EE /* Pods_Utilities.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00081A2A2A70E7673C3AD5F1 /* Pods-Utilities.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utilities.debug.xcconfig"; path = "Target Support Files/Pods-Utilities/Pods-Utilities.debug.xcconfig"; sourceTree = "<group>"; };
 		0ABC22C0240CB5C20073FA64 /* Utilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABC22C3240CB5C20073FA64 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		0ABC22C4240CB5C20073FA64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +39,11 @@
 		0ABC22D1240CB6390073FA64 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		0ABC22D2240CB63A0073FA64 /* WKWebView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebView+Ext.swift"; sourceTree = "<group>"; };
 		0ABC22D3240CB63A0073FA64 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		0ABC22DE240CD4560073FA64 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		0ABC22E0240CD5600073FA64 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		0ABC22E4240CD5E40073FA64 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		E493B8BA3F6A4FAEEF8044EE /* Pods_Utilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F054534F0CA8E98162382217 /* Pods-Utilities.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utilities.release.xcconfig"; path = "Target Support Files/Pods-Utilities/Pods-Utilities.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E808E65423DF276FD9E27C49 /* Pods_Utilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +63,8 @@
 			children = (
 				0ABC22C2240CB5C20073FA64 /* Utilities */,
 				0ABC22C1240CB5C20073FA64 /* Products */,
+				12F01A3E61421C0405CE740F /* Pods */,
+				4E1D86409400E590A53FB8B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,8 +99,28 @@
 				0ABC22D1240CB6390073FA64 /* UIButton+Ext.swift */,
 				0ABC22D2240CB63A0073FA64 /* WKWebView+Ext.swift */,
 				0ABC22D3240CB63A0073FA64 /* UIView+Ext.swift */,
+				0ABC22DE240CD4560073FA64 /* UIFont+Ext.swift */,
+				0ABC22E0240CD5600073FA64 /* UIColor+Ext.swift */,
+				0ABC22E4240CD5E40073FA64 /* String+Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		12F01A3E61421C0405CE740F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00081A2A2A70E7673C3AD5F1 /* Pods-Utilities.debug.xcconfig */,
+				F054534F0CA8E98162382217 /* Pods-Utilities.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4E1D86409400E590A53FB8B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E493B8BA3F6A4FAEEF8044EE /* Pods_Utilities.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +141,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ABC22C6240CB5C20073FA64 /* Build configuration list for PBXNativeTarget "Utilities" */;
 			buildPhases = (
+				FCE95F4CCCDA499426B04E2B /* [CP] Check Pods Manifest.lock */,
 				0ABC22BB240CB5C20073FA64 /* Headers */,
 				0ABC22BC240CB5C20073FA64 /* Sources */,
 				0ABC22BD240CB5C20073FA64 /* Frameworks */,
@@ -163,6 +197,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FCE95F4CCCDA499426B04E2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Utilities-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0ABC22BC240CB5C20073FA64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -170,12 +229,15 @@
 			files = (
 				0ABC22D8240CB63A0073FA64 /* UIImage+Ext.swift in Sources */,
 				0ABC22D9240CB63A0073FA64 /* UITextField+Ext.swift in Sources */,
+				0ABC22DF240CD4560073FA64 /* UIFont+Ext.swift in Sources */,
+				0ABC22E5240CD5E40073FA64 /* String+Ext.swift in Sources */,
 				0ABC22DD240CB63A0073FA64 /* UIView+Ext.swift in Sources */,
 				0ABC22D5240CB63A0073FA64 /* UIImageView+Ext.swift in Sources */,
 				0ABC22DB240CB63A0073FA64 /* UIButton+Ext.swift in Sources */,
 				0ABC22D6240CB63A0073FA64 /* UITableViewCell+Ext.swift in Sources */,
 				0ABC22DA240CB63A0073FA64 /* UITableView+Ext.swift in Sources */,
 				0ABC22D7240CB63A0073FA64 /* UICollectionView+Ext.swift in Sources */,
+				0ABC22E1240CD5600073FA64 /* UIColor+Ext.swift in Sources */,
 				0ABC22D4240CB63A0073FA64 /* UILabel+Ext.swift in Sources */,
 				0ABC22DC240CB63A0073FA64 /* WKWebView+Ext.swift in Sources */,
 			);
@@ -198,6 +260,7 @@
 		};
 		0ABC22C7240CB5C20073FA64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00081A2A2A70E7673C3AD5F1 /* Pods-Utilities.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -279,6 +342,7 @@
 		};
 		0ABC22C8240CB5C20073FA64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F054534F0CA8E98162382217 /* Pods-Utilities.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
