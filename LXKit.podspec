@@ -2,11 +2,11 @@ Pod::Spec.new do |s|
   s.name = 'ToolCar'
   s.version = '1.0.0'
   s.license = 'MIT'
-  s.summary = 'Elegant HTTP Networking in Swift'
+  s.summary = 'LUO XIAO ToolBox'
   s.homepage = 'https://github.com/luoxiao/ToolCar'
-  s.authors = { 'Alamofire Software Foundation' => 'info@alamofire.org' }
-  s.source = { :git => 'https://github.com/luoxiao/ToolCar.git', :tag => s.version }
-  s.documentation_url = 'https://github.com/luoxiao/ToolCar'
+  s.authors = { 'LUO XIAO' => 'luoxiao1115@163.com' }
+  s.source = { :git => 'https://github.com/luoxiao/LXKit.git', :tag => s.version }
+  s.documentation_url = 'https://github.com/luoxiao/LXKit'
 
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
