@@ -7,23 +7,26 @@
 
 import Foundation
 
-public extension UIColor {
+func RGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor { return UIColor (red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a) }
 
-    convenience init(hex hexValue: Int, alpha: CGFloat = 1.0) {
-        let redValue   = CGFloat((hexValue & 0xFF0000) >> 16) / 255.0
-        let greenValue = CGFloat((hexValue & 0xFF00) >> 8) / 255.0
-        let blueValue  = CGFloat(hexValue & 0xFF) / 255.0
-        self.init(red: redValue, green: greenValue, blue: blueValue, alpha: alpha)
+public extension UIColor {
+    
+    convenience init(hex: String) {
+        let hex = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        let scanner = Scanner(string: hex)
+        if hex.hasPrefix("#") {scanner.scanLocation = 1}
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+         
+        let mask = 0x000000FF
+        let r = CGFloat(Int(color >> 16) & mask) / 255.0
+        let g = CGFloat(Int(color >> 8) & mask) / 255.0
+        let b = CGFloat(Int(color) & mask) / 255.0
+        self.init(red: r, green: g, blue: b, alpha: 1)
     }
     
     class func hex(_ hex:String) -> UIColor {
-        var result: UInt32 = 0
-        var h = hex
-        if hex.hasPrefix("#") {
-            h.remove(at: hex.startIndex)
-        }
-        Scanner(string: "0x" + hex).scanHexInt32(&result)
-        return UIColor(hex: Int(result))
+        return UIColor(hex: hex)
     }
     
     class func hex(_ hex:String, alph:CGFloat) -> UIColor {

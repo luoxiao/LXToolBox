@@ -9,7 +9,7 @@
 import Foundation
 import SnapKit
 
-private let common_line_color  = UIColor.hex("#E8E8E8")
+private let common_line_color  = UIColor.hex("#979797")
 
 // line
 public extension UIView {

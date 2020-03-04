@@ -12,7 +12,6 @@ import UIKit
 
 public extension UIImage {
     
-    
     class func createWithColor(_ color:UIColor) -> UIImage {
         
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)

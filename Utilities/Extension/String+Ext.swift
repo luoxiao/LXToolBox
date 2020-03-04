@@ -30,17 +30,32 @@ public extension String {
 public extension String {
     
     //Base64编码
-    func base64Encoding() -> String {
-        let result = self.data(using: String.Encoding.utf8)?.base64EncodedString(options: Data.Base64EncodingOptions.init(rawValue: 0))
-        return result!
+    func base64Encoding() -> String? {
+        if let data = self.data(using: .utf8) {
+            return data.base64EncodedString()
+        }
+        return nil
     }
 
     //Base64解码
-    func base64Decoding()->String {
-        let decodedData = NSData(base64Encoded: self, options: NSData.Base64DecodingOptions.init(rawValue: 0))
-        let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
-        return decodedString
+    func base64Decoding() -> String? {
+        if let data = Data(base64Encoded: self) {
+            return String(data: data, encoding: .utf8)
+        }
+        return nil
+            
+//        guard let data = NSData(base64Encoded: self, options: NSData.Base64DecodingOptions(rawValue: 0)) else {return nil}
+//        var encrypted: [UInt8] = []
+//        let count = data.length
+//
+//        for i in 0..<count {
+//            var temp:UInt8 = 0
+//            data.getBytes(&temp, range: NSRange(location: i, length: 1))
+//            encrypted.append(temp)
+//        }
+//        return String(bytes: encrypted, encoding: .utf8)
     }
+    
 }
 
 public extension String {
