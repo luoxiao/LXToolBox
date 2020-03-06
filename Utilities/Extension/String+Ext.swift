@@ -43,17 +43,6 @@ public extension String {
             return String(data: data, encoding: .utf8)
         }
         return nil
-            
-//        guard let data = NSData(base64Encoded: self, options: NSData.Base64DecodingOptions(rawValue: 0)) else {return nil}
-//        var encrypted: [UInt8] = []
-//        let count = data.length
-//
-//        for i in 0..<count {
-//            var temp:UInt8 = 0
-//            data.getBytes(&temp, range: NSRange(location: i, length: 1))
-//            encrypted.append(temp)
-//        }
-//        return String(bytes: encrypted, encoding: .utf8)
     }
     
 }
@@ -202,6 +191,7 @@ public extension String {
 
 
 public extension String {
+    ///转为htm字符串
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {
