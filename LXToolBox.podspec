@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'LXKit'
+  s.name = 'LXToolBox'
   s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'LUO XIAO ToolBox'
