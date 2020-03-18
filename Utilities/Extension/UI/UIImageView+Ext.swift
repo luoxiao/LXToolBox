@@ -37,4 +37,13 @@ public extension UIImageView {
         }
     }
     
+    func setImage(_ url:String?, placeholder:UIImage?) {
+        self.contentMode = .scaleAspectFill
+        self.clipsToBounds = true
+        self.isUserInteractionEnabled = true
+        if let u = url {
+            self.kf.setImage(with: URL(string: u), placeholder: placeholder, options: [.transition(.fade(0.3))])
+        }
+    }
+    
 }
