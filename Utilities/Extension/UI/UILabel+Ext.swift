@@ -41,15 +41,15 @@ public extension UILabel {
 }
 
 ///边距Label
-class MMLabel: UILabel {
+public class MMLabel: UILabel {
     
-    var textInsets: UIEdgeInsets = .zero
+    public var textInsets: UIEdgeInsets = .zero
     
-    override func drawText(in rect: CGRect) {
+    override public func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: textInsets))
     }
     
-    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    override public func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insets = textInsets
         var rect = super.textRect(forBounds: bounds.inset(by: insets),
                                   limitedToNumberOfLines: numberOfLines)

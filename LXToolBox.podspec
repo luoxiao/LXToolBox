@@ -21,5 +21,6 @@ Pod::Spec.new do |s|
   
   s.dependency 'SnapKit'
   s.dependency 'Kingfisher'
+  s.dependency 'DateToolsSwift'
   
 end

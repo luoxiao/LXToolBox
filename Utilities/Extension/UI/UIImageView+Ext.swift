@@ -29,20 +29,23 @@ public extension UIImageView {
 public extension UIImageView {
     
     func setImage(_ url:String?) {
-        self.contentMode = .scaleAspectFill
-        self.clipsToBounds = true
-        self.isUserInteractionEnabled = true
-        if let u = url {
-            self.kf.setImage(with: URL(string: u), placeholder: UIImage(named: "icon_load_placehold"), options: [.transition(.fade(0.3))])
-        }
+        setImage(url, placeholder: nil, failImage: nil)
     }
     
     func setImage(_ url:String?, placeholder:UIImage?) {
+        setImage(url, placeholder: placeholder, failImage: nil)
+    }
+    
+    func setImage(_ url:String?, placeholder:UIImage?, failImage:UIImage?) {
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
         self.isUserInteractionEnabled = true
         if let u = url {
-            self.kf.setImage(with: URL(string: u), placeholder: placeholder, options: [.transition(.fade(0.3))])
+            self.kf.setImage(with: URL(string: u), placeholder: placeholder, options:  [.transition(.fade(0.3))], progressBlock: nil) {[weak self] (image, error, type, url) in
+                if let _ = error {
+                    self?.image = failImage
+                }
+            }
         }
     }
     
