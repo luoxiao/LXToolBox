@@ -27,9 +27,9 @@ public extension Date {
         if sec <= 0 {
             return "00:00"
         }
-        else if sec < minute {
-            return String(format: "%02ld", t_sec)
-        }
+//        else if sec < minute {
+//            return String(format: "%02ld", t_sec)
+//        }
         else if sec < hour {
             return String(format: "%02ld:%02ld", t_minute,t_sec)
         }

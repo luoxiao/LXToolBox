@@ -14,7 +14,7 @@ public extension UIView {
     
     
     //添加渐变色
-    public func gradientColor(_ startPoint: CGPoint, _ endPoint: CGPoint, _ colors: [Any]) {
+    func gradientColor(_ startPoint: CGPoint, _ endPoint: CGPoint, _ colors: [Any]) {
         
         guard startPoint.x >= 0, startPoint.x <= 1, startPoint.y >= 0, startPoint.y <= 1, endPoint.x >= 0, endPoint.x <= 1, endPoint.y >= 0, endPoint.y <= 1 else {
             return
@@ -37,7 +37,7 @@ public extension UIView {
         self.layer.masksToBounds = false
     }
     
-    public func removeGradientLayer() {
+    func removeGradientLayer() {
         if let sl = self.layer.sublayers {
             for layer in sl {
                 if layer.isKind(of: CAGradientLayer.self) {
@@ -53,7 +53,7 @@ public extension UIView {
 extension UIView {
     
     //绘制虚线
-    class func drawDashLine(color:UIColor,size:CGSize,lineWidth:CGFloat,space:CGFloat) ->UIImage? {
+    public class func drawDashLine(color:UIColor,size:CGSize,lineWidth:CGFloat,space:CGFloat) ->UIImage? {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         context?.setStrokeColor(color.cgColor)
@@ -69,7 +69,7 @@ extension UIView {
 
 extension UIView {
 
-    func addShadowColor(_ color:UIColor, offset:CGSize? = .zero) {
+    public func addShadowColor(_ color:UIColor, offset:CGSize? = .zero) {
         let shadowView = UIView()
         shadowView.backgroundColor = UIColor.white
         superview?.insertSubview(shadowView, belowSubview: self)
@@ -82,6 +82,14 @@ extension UIView {
             make.edges.equalTo(self)
         }
     }
-
-    
 }
+
+extension UIView {
+
+    public func addTapTarget(_ target: Any?, action: Selector) {
+        self.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
+    }
+}
+
+
+

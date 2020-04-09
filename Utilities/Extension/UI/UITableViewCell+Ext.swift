@@ -15,13 +15,13 @@ private let common_line_color  = UIColor.hex("#979797")
 public extension UIView {
     
     @discardableResult
-    func addBottomSeparatorLine(_ left:CGFloat? = 0,_ right:CGFloat? = 0, height:CGFloat? = 0.5) -> UIView {
+    func addBottomSeparatorLine(_ left:CGFloat? = 0,_ right:CGFloat? = 0, height:CGFloat? = 0.5, color:UIColor? = .hex("#D8D8D8")) -> UIView {
         let line = UIView()
         let _left = left ?? CGFloat(0)
         let _right = right ?? CGFloat(0)
         let _height = height ?? CGFloat(0.3)
-        self.addSubview(line)
-        line.backgroundColor = common_line_color
+        line.backgroundColor = color
+        addSubview(line)
         line.snp.makeConstraints { (make) in
             make.left.equalToSuperview().inset(_left)
             make.right.equalToSuperview().inset(_right)
@@ -32,13 +32,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func addTopSeparatorLine(_ left:CGFloat? = 0,_ right:CGFloat? = 0, height:CGFloat? = 0.5) -> UIView {
+    func addTopSeparatorLine(_ left:CGFloat? = 0,_ right:CGFloat? = 0, height:CGFloat? = 0.5, color:UIColor? = .hex("#D8D8D8")) -> UIView {
         let line = UIView()
         let _left = left ?? CGFloat(0)
         let _right = right ?? CGFloat(0)
         let _height = height ?? CGFloat(0.3)
-        self.addSubview(line)
-        line.backgroundColor = common_line_color
+        line.backgroundColor = color
+        addSubview(line)
         line.snp.makeConstraints { (make) in
             make.left.equalToSuperview().inset(_left)
             make.right.equalToSuperview().inset(_right)
