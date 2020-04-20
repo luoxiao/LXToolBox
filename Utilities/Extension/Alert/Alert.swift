@@ -10,11 +10,11 @@ import UIKit
 
 
 
-class Alert: NSObject {
+public class Alert: NSObject {
 
-    typealias CancelAction = ()->Void
-    typealias ClickAction = (Int)->Void
-    typealias ConfirmAction = ()->Void
+    public typealias CancelAction = ()->Void
+    public typealias ClickAction = (Int)->Void
+    public typealias ConfirmAction = ()->Void
 
     
     private class func alert(_ title:String? = nil,
@@ -52,13 +52,7 @@ class Alert: NSObject {
             }
         }
 
-        guard var topVC = UIApplication.shared.keyWindow?.rootViewController else {return}
-        while let vc = topVC.presentedViewController {
-            if let t = vc.presentedViewController {
-                topVC = t
-            }
-        }
-        topVC.present(alertCtr, animated: true, completion: nil)
+        UIViewController.top.present(alertCtr, animated: true, completion: nil)
     }
 }
 

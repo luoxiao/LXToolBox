@@ -50,12 +50,12 @@ public extension UIButton {
 }
 
 public extension UIButton {
-    func c(_ textColor:UIColor, _ font:UIFont, _ state:UIControl.State) {
+    func c(_ font:UIFont, _ textColor:UIColor, _ state:UIControl.State) {
         setTitleColor(textColor, for: state)
         titleLabel?.font = font
     }
     
-    func c(_ textColor:UIColor, _ font:UIFont,_ imageName:String ,_ state:UIControl.State) {
+    func c(_ font:UIFont, _ textColor:UIColor, _ imageName:String ,_ state:UIControl.State) {
         setImage(UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), for: state)
         setTitleColor(textColor, for: state)
         titleLabel?.font = font
