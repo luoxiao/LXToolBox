@@ -70,4 +70,14 @@ extension UIViewController {
     open class var top:UIViewController {
         return UIViewController.topMost!
     }
+    
+    
+    open func close() {
+        if let vc = UIViewController.top.presentingViewController {
+            vc.dismiss(animated: true, completion:nil)
+        }
+        else {
+            UIViewController.topNavi?.popViewController(animated: true)
+        }
+    }
 }
