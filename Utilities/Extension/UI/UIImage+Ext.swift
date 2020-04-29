@@ -120,14 +120,36 @@ public extension UIImage {
 
 public extension UIImage {
     
-    //生成二维码
-    class func generateQRCode(_ str: String) -> UIImage? {
-        let data = str.data(using: .ascii)
-        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-        filter.setValue(data, forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 9, y: 9)
-        guard let output = filter.outputImage?.transformed(by: transform) else { return nil }
-        return UIImage(ciImage: output)
+    ///生成二维码
+    class func generateQRCode(_ text: String,_ width:CGFloat,_ fillImage:UIImage? = nil, _ color:UIColor? = nil) -> UIImage? {
+        
+        guard let data = text.data(using: .utf8) else {return nil}
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            filter.setValue("H", forKey: "inputCorrectionLevel") // 设置生成的二维码的容错率 value = @"L/M/Q/H"
+            guard let outPutImage = filter.outputImage else {return nil} //获取生成的二维码
+            
+            // 设置二维码颜色
+            let colorFilter = CIFilter(name: "CIFalseColor", parameters: ["inputImage":outPutImage,"inputColor0":CIColor(cgColor: color?.cgColor ?? UIColor.black.cgColor),"inputColor1":CIColor(cgColor: UIColor.clear.cgColor)])
+            
+            //获取带颜色的二维码
+            guard let newOutPutImage = colorFilter?.outputImage else {return nil}
+            let scale = width/newOutPutImage.extent.width
+            let transform = CGAffineTransform(scaleX: scale, y: scale)
+            let output = newOutPutImage.transformed(by: transform)
+            let QRCodeImage = UIImage(ciImage: output)
+            
+            guard let fillImage = fillImage else {return QRCodeImage}
+            let imageSize = QRCodeImage.size
+            UIGraphicsBeginImageContext(imageSize)
+            QRCodeImage.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+            let fillRect = CGRect(x: (width - width/5)/2, y: (width - width/5)/2, width: width/5, height: width/5)
+            fillImage.draw(in: fillRect)
+            guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return QRCodeImage }
+            UIGraphicsEndImageContext()
+            return newImage
+        }
+        return nil
     }
     
 }

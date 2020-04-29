@@ -204,3 +204,75 @@ public extension String {
         return htmlToAttributedString?.string ?? ""
     }
 }
+
+
+
+
+public extension String {
+
+    var double: Double? {
+        get {
+            return Double(self)
+        }
+        set {
+            if let value = newValue {
+                self = value.description
+            } else {
+                self = ""
+            }
+        }
+    }
+
+    var doubleValue: Double {
+        get {
+            return Double(self) ?? 0
+        }
+        set {
+            self = newValue.description
+        }
+    }
+
+    var float: Float? {
+        get {
+            return Float(self)
+        }
+        set {
+              if let value = newValue {
+                self = value.description
+            } else {
+                self = ""
+            }
+        }
+    }
+
+    var floatValue: Float {
+        get {
+            return Float(self) ?? 0
+        }
+        set {
+            self = newValue.description
+        }
+    }
+
+    var int: Int? {
+        get {
+            return Int(self)
+        }
+        set {
+            if let value = newValue {
+                self = value.description
+            } else {
+                self = ""
+            }
+        }
+    }
+    
+    var intValue: Int {
+        get {
+            return Int(self) ?? 0
+        }
+        set {
+            self = newValue.description
+        }
+    }
+}
