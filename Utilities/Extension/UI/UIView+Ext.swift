@@ -14,7 +14,7 @@ public extension UIView {
     
     
     //添加渐变色
-    func gradientColor(_ startPoint: CGPoint, _ endPoint: CGPoint, _ colors: [Any]) {
+    func gradientColor(_ startPoint: CGPoint, _ endPoint: CGPoint, _ colors: [UIColor]) {
         
         guard startPoint.x >= 0, startPoint.x <= 1, startPoint.y >= 0, startPoint.y <= 1, endPoint.x >= 0, endPoint.x <= 1, endPoint.y >= 0, endPoint.y <= 1 else {
             return
@@ -27,7 +27,7 @@ public extension UIView {
         gradientLayer.frame = self.layer.bounds
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
-        gradientLayer.colors = colors
+        gradientLayer.colors = colors.compactMap{$0.cgColor}
         gradientLayer.cornerRadius = self.layer.cornerRadius
         gradientLayer.masksToBounds = true
         // 渐变图层插入到最底层，避免在uibutton上遮盖文字图片
