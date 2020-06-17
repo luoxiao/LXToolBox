@@ -41,9 +41,14 @@ public extension UIImageView {
         self.clipsToBounds = true
         self.isUserInteractionEnabled = true
         if let u = url {
-            self.kf.setImage(with: URL(string: u), placeholder: placeholder, options:  [.transition(.fade(0.3))], progressBlock: nil) {[weak self] (image, error, type, url) in
-                if let _ = error {
-                    self?.image = failImage
+            self.kf.setImage(with: URL(string: u), placeholder: placeholder, options: [.transition(.fade(0.3))], progressBlock: nil) { [weak self]  (result) in
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    if error.isInvalidResponseStatusCode {
+                        self?.image = failImage
+                    }
                 }
             }
         }

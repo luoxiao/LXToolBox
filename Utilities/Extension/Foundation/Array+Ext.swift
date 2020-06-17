@@ -19,4 +19,10 @@ public extension Array {
         return (0..<count).contains(index) ? self[index] : nil
     }
     
+    mutating func saveRomve(_ index:Int) {
+        if self.count > index {
+            self.remove(at: index)
+        }
+    }
+    
 }
