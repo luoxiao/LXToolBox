@@ -10,6 +10,7 @@ import Foundation
 private var UICollectionViewLodingKey = 1238423
 public extension UIScrollView {
     
+    ///是否开始显示loading指示器（UIActivityIndicatorView）
     var isLoding:Bool {
         set {
             objc_setAssociatedObject(self, &UICollectionViewLodingKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
