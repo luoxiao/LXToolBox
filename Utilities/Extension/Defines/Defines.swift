@@ -25,3 +25,6 @@ func isPhoneX() -> Bool {
     }
     return isIphoneX
 }
+
+
+public func isPad() -> Bool {return UIDevice.current.userInterfaceIdiom == .pad}
