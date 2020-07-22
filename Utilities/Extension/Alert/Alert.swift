@@ -72,28 +72,28 @@ extension Alert {
         Alert.alert(nil, message: message, cancelTitle: "确定", cancelAction: nil, buttons: nil, action: nil, style: .alert)
     }
     
-    ///只包含取消动作
+    ///【取消] title & 动作
     public class func alertTitle(_ title:String?, message:String?, cancelTitle:String, cancelAction:CancelAction?) {
         Alert.alert(title, message: message, cancelTitle: cancelTitle, cancelAction: cancelAction, buttons: nil, action: nil, style: .alert)
     }
     
-    ///按钮数组动作，无取消
+    ///【数组] title & 动作
     public class func alertTitle(_ title:String?, message:String?, buttons:[String]?, action:ClickAction?) {
         Alert.alert(title, message: message, cancelTitle: nil, cancelAction: nil, buttons: buttons, action: action, style: .alert)
     }
     
-    ///按钮数组动作，有取消
+    ///【取消】title   【数组] title & 动作
     public class func alertTitle(_ title:String?, message:String?, cancelTitle:String?, cancelAction:CancelAction?, buttons:[String]?, action:ClickAction?)
     {
         Alert.alert(title, message: message, cancelTitle: cancelTitle, cancelAction: cancelAction, buttons: buttons, action: action, style: .alert)
     }
     
-    ///无取消、有确定
+    ///【取消】title   【确定] title & 动作
     public class func alertTitle(_ title:String?, message:String?, cancelTitle:String, confirmTitle:String, action:@escaping ConfirmAction) {
         Alert.alert(title, message: message, cancelTitle: cancelTitle, cancelAction: nil, buttons: [confirmTitle], confirmAction: action, style: .alert)
     }
     
-    ///有取消、有确定
+    ///【取消】title & 动作   【确定] title & 动作
     public class func alertTitle(_ title:String?, message:String?, cancelTitle:String?, cancelAction:CancelAction?, confirmTitle:String, action:@escaping ConfirmAction) {
         Alert.alert(title, message: message, cancelTitle: cancelTitle, cancelAction: cancelAction, buttons: [confirmTitle], confirmAction: action, style: .alert)
     }
