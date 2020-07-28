@@ -27,12 +27,12 @@ public extension ActionSheet {
         show(titles.compactMap{ItemData($0)}, click: click, cancelItem: ItemData(cancelTitle), cancelAction: cancelAction)
     }
     
-    ///【title+des】数组 + 自定义动作
+    ///【title+subTitle】数组 + 自定义动作
     class func showAll(_ items:[ItemData], clickAction:ClickAction?) {
         ActionSheetPopView.showAll(items, clickAction: clickAction)
     }
     
-    ///【title+des】数组 + 自定义取消 + 自定义动作
+    ///【title+subTitle】数组 + 自定义取消 + 自定义动作
     class func show(_ items:[ItemData], click:ClickAction?, cancelItem:ItemData, cancelAction:CancelAction?) {
         var nItems = items
         nItems.append(cancelItem)
