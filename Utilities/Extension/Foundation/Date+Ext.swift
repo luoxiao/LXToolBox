@@ -49,11 +49,11 @@ public extension Date {
     enum Format:String {
         case day = "yyyy-MM-dd"
         case dayMinute = "yyyy-MM-dd HH:mm"
-        case shorDayMinute = "MM-dd HH:mm"
+        case shortDayMinute = "MM-dd HH:mm"
         
         case cnDay = "yyyy年MM月dd日"
         case cnDayMinute = "yyyy年MM月dd日 HH:mm"
-        case cnShorDayMinute = "MM月dd日 HH:mm"
+        case cnShortDayMinute = "MM月dd日 HH:mm"
     }
     
     static func formatToString(_ interval:Int, format:Format) -> String {
