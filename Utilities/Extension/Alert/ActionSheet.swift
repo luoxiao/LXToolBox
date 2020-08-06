@@ -173,7 +173,7 @@ extension ActionSheetPopView:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true) {
+        dismissAction(animated: true) {
             self.clickAction?(indexPath.section)
         }
     }
@@ -229,7 +229,7 @@ fileprivate extension ActionSheetPopView {
         }
     }
     
-    func dismiss(animated:Bool) {
+    func dismissAction(animated:Bool, completion:(()->Void)? = nil) {
         let duration:TimeInterval = animated ? 0.2 : 0
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
             self.contentView.snp.remakeConstraints { (make) in
@@ -239,7 +239,7 @@ fileprivate extension ActionSheetPopView {
             }
             self.view.layoutIfNeeded()
         }) { (complete) in
-            self.dismiss(animated: animated, completion: nil)
+            self.dismiss(animated: false, completion: completion)
         }
     }
 }
