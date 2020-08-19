@@ -24,6 +24,14 @@ public extension UIScrollView {
         }
     }
     
+    ///loading指示器Y轴偏移量
+    func setLoadingOffsetY(_ offsetY:CGFloat) {
+        guard let loadingView = self.viewWithTag(UICollectionViewLodingKey) as? UIActivityIndicatorView else {return}
+        loadingView.snp.updateConstraints { (make) in
+            make.centerY.equalToSuperview().offset(offsetY)
+        }
+    }
+    
     private func loadingViewStartAnimation(_ animation:Bool) {
         var loadingView = self.viewWithTag(UICollectionViewLodingKey) as? UIActivityIndicatorView
         if loadingView == nil {
@@ -32,7 +40,8 @@ public extension UIScrollView {
             loadingView!.hidesWhenStopped = true
             addSubview(loadingView!)
             loadingView!.snp.makeConstraints { (make) in
-                make.center.equalToSuperview()
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
             }
         }
         
