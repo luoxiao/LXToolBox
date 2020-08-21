@@ -37,9 +37,14 @@ public extension UIImageView {
     }
     
     func setImage(_ url:String?, placeholder:UIImage?, failImage:UIImage?) {
+        setImage(url, placeholder: placeholder, failImage: failImage, completion: nil)
+    }
+    
+    func setImage(_ url:String?, placeholder:UIImage? = nil, failImage:UIImage? = nil, completion:(()->Void)? = nil) {
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
         self.isUserInteractionEnabled = true
+        
         if let u = url {
             self.kf.setImage(with: URL(string: u), placeholder: placeholder, options: [.transition(.fade(0.3))], progressBlock: nil) { [weak self]  (result) in
                 switch result {
@@ -50,8 +55,9 @@ public extension UIImageView {
                         self?.image = failImage
                     }
                 }
+                completion?()
             }
         }
+        
     }
-    
 }
