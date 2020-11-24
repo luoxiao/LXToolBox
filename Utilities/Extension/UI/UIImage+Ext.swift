@@ -12,6 +12,7 @@ import UIKit
 
 public extension UIImage {
     
+    ///创建图片
     class func createWithColor(_ color:UIColor) -> UIImage {
         
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
@@ -24,7 +25,36 @@ public extension UIImage {
         return image!
     }
     
+    ///创建渐变色图片
+    class func createGradientWithColors(_ colors:[UIColor], _ startPoint: CGPoint, _ endPoint: CGPoint) -> UIImage {
+        
+        let emptyImage = UIImage()
+        let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+        UIGraphicsBeginImageContext(rect.size)
+        guard let context = UIGraphicsGetCurrentContext(),
+              let colorSpace = colors.last?.cgColor.colorSpace,
+              let gradient = CGGradient(colorsSpace: colorSpace, colors: colors.map{$0.cgColor} as CFArray, locations: nil)
+        else
+        {
+            return emptyImage
+        }
+        
+        let nStart = CGPoint(x: rect.width * startPoint.x, y: rect.height * startPoint.y)
+        let nEnd = CGPoint(x: rect.width * endPoint.x, y: rect.height * endPoint.y)
+
+        context.saveGState()
+        context.drawLinearGradient(gradient, start: nStart, end: nEnd, options: [.drawsAfterEndLocation, .drawsBeforeStartLocation])
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {return emptyImage}
+        UIGraphicsEndImageContext()
+        return image
+    }
     
+    ///创建渐变色图片
+    class func createGradientWithColors(_ colors:[UIColor]) -> UIImage {
+        return UIImage.createGradientWithColors(colors, CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0))
+    }
+    
+    ///View快照图片
     class func snapFromView(_ view:UIView) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -33,11 +63,12 @@ public extension UIImage {
         return image!
     }
     
+    ///加载原始图片，忽略tinkColor影响
     class func original(_ imageName:String) -> UIImage? {
         return UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal)
     }
     
-    
+    ///模糊图片
     class func coreBlurImage(_ img:UIImage,blur:Float) -> UIImage {
         let context = CIContext()
         let imputImg = CIImage(image: img)
@@ -52,7 +83,13 @@ public extension UIImage {
         return blurImage
     }
     
-    
+
+}
+
+
+public extension UIImage {
+
+    ///重置大小
     func reSizeImage(_ reSize:CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale);
         draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height));
@@ -61,19 +98,20 @@ public extension UIImage {
         return reSizeImage;
     }
     
-    //等比率缩放
+    ///等比率缩放
     func scaleImage(_ scaleSize:CGFloat) -> UIImage? {
         let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
         return reSizeImage(reSize)
     }
     
-    //根据宽等比缩放
+    ///根据宽等比缩放
     func reSizeImageWidth(_ newWidth:CGFloat) -> UIImage? {
         let newHeight = newWidth / size.width * size.height
         let reSize = CGSize(width: newWidth, height: newHeight)
         return reSizeImage(reSize)
     }
     
+    ///根据宽等比缩放
     func reSizeImageWidth(_ newWidth:CGFloat, quality:CGFloat) -> UIImage? {
         let newHeight = newWidth / size.width * size.height
         let reSize = CGSize(width: newWidth, height: newHeight)
@@ -115,6 +153,7 @@ public extension UIImage {
         }
         return data
     }
+    
 }
 
 
@@ -153,3 +192,4 @@ public extension UIImage {
     }
     
 }
+
