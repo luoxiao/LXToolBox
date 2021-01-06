@@ -38,6 +38,7 @@ public extension UIScrollView {
             loadingView = UIActivityIndicatorView()
             loadingView?.tag = UICollectionViewLodingKey
             loadingView!.hidesWhenStopped = true
+            loadingView?.color = .gray
             addSubview(loadingView!)
             loadingView!.snp.makeConstraints { (make) in
                 make.centerX.equalToSuperview()
